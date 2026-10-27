@@ -74,14 +74,16 @@ Quando `image` existe, o cardápio, o painel do produto e o carrinho passam a us
 
 ## Publicação na Vercel
 
-O projeto é 100% estático. Na Vercel, o projeto deve usar:
+O projeto é 100% estático. O comando `npm run build` copia `index.html`, `css/`, `js/` e `assets/` para `public/`. O `vercel.json` já define esse build e a pasta de saída.
+
+Na Vercel, o projeto deve usar:
 
 - **Framework Preset:** Other
 - **Root Directory:** a raiz do repositório
-- **Build Command:** vazio
-- **Output Directory:** `.` (raiz)
+- **Build Command:** `npm run build`
+- **Output Directory:** `public`
 
-O arquivo `vercel.json` já força a saída na raiz. Depois de alterar as configurações, faça um novo deploy. Não há variáveis de ambiente nem segredos.
+Depois de conferir, faça um novo deploy. Não há variáveis de ambiente nem segredos.
 
 ## Observações
 
