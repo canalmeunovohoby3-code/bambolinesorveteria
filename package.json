@@ -1,0 +1,11 @@
+{
+  "name": "cardapio-sorveteria-bamboline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cardápio digital da Sorveteria Bamboline com carrinho, taxa por setor e checkout pelo WhatsApp.",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "test": "node --test tests/core.test.js"
+  }
+}

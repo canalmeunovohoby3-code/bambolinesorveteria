@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cardápio digital — Sorveteria Bamboline</title>
+  <meta name="description" content="Peça sorvetes, açaí, leitinho, milk-shakes, casquinhas e bebidas da Sorveteria Bamboline. Monte o pedido e finalize pelo WhatsApp. Delivery e consumo no local em Ariquemes – RO.">
+  <meta name="theme-color" content="#FBF4EC">
+  <meta property="og:title" content="Cardápio digital — Sorveteria Bamboline">
+  <meta property="og:description" content="Escolha seus produtos, monte o carrinho e envie o pedido pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/catalog.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "IceCreamShop",
+    "name": "Sorveteria Bamboline",
+    "description": "Sorvetes tradicionais, açaí, leitinho e bebidas em Ariquemes, Rondônia. Delivery e consumo no local.",
+    "telephone": "+55 69 99310-8621",
+    "sameAs": ["https://www.instagram.com/sorveteriabamboline/"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Caçapava, nº 4257, Bairro 9 de Cima",
+      "addressLocality": "Ariquemes",
+      "addressRegion": "RO",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "15:00",
+        "closes": "23:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Monday",
+        "opens": "15:00",
+        "closes": "22:00"
+      }
+    ],
+    "hasMenu": "#cardapio",
+    "servesCuisine": "Sorvetes, açaí e bebidas"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o cardápio</a>
+
+  <header class="app-header" id="topo">
+    <div class="container app-header__inner">
+      <a class="app-brand" href="#cardapio" aria-label="Sorveteria Bamboline — ir para o cardápio">
+        <span class="app-brand__avatar">
+          <img src="assets/avatar-bamboline.jpg" width="192" height="192" alt="" fetchpriority="high" decoding="async">
+        </span>
+        <span class="app-brand__text">
+          <span class="app-brand__name">Sorveteria Bamboline</span>
+          <span class="app-brand__meta" data-store-status>
+            <span class="status-dot" data-status-dot></span>
+            <span data-header-status>Confira</span>
+            <span class="app-brand__sep" aria-hidden="true">·</span>
+            <span data-header-hours>Horário de hoje</span>
+          </span>
+        </span>
+      </a>
+      <button class="cart-button app-header__cart" id="cart-open" type="button" aria-haspopup="dialog" aria-controls="cart-drawer" aria-label="Abrir carrinho">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 8h14l-1.2 10.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9L5 8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="cart-button__label">Carrinho</span>
+        <span class="cart-button__count" data-cart-count>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-main" id="conteudo">
+    <div class="container app-search-wrap">
+      <div class="catalog-search" role="search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.7" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input id="menu-search" type="search" placeholder="Buscar no cardápio..." autocomplete="off" aria-label="Buscar no cardápio">
+        <button class="catalog-search__clear" id="menu-search-clear" type="button" hidden aria-label="Limpar busca">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="category-sticky">
+      <div class="container">
+        <nav class="category-rail" id="category-nav" aria-label="Categorias do cardápio"></nav>
+      </div>
+    </div>
+
+    <div class="container catalog-content" id="cardapio">
+      <div class="catalog-meta">
+        <p class="catalog-summary" id="catalog-summary" aria-live="polite">17 produtos</p>
+        <p class="catalog-hint">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8h11v8H3V8Zm11 3h4l3 3v2h-7v-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/></svg>
+          Taxa de entrega calculada na finalização
+        </p>
+      </div>
+      <div class="catalog-notice" id="closed-notice" hidden>
+        <span class="catalog-notice__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <p><strong>Fora do horário de atendimento agora.</strong> Você pode montar o pedido; a confirmação dependerá do funcionamento.</p>
+      </div>
+      <noscript>
+        <p class="catalog-notice"><strong>Ative o JavaScript</strong> para carregar o cardápio, o carrinho e o pedido pelo WhatsApp.</p>
+      </noscript>
+      <div class="catalog-sections" id="menu-sections"></div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container app-footer__main">
+      <div class="app-footer__brand">
+        <p class="app-footer__name">Sorveteria Bamboline</p>
+        <p class="app-footer__desc">Sorvetes tradicionais, açaí, leitinho e bebidas. Delivery e consumo no local em Ariquemes – RO.</p>
+      </div>
+      <div class="app-footer__block">
+        <h2>Endereço</h2>
+        <address data-store-address>Rua Caçapava, nº 4257 – Bairro 9 de Cima, Ariquemes – RO</address>
+        <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Ca%C3%A7apava%2C%204257%2C%20Bairro%209%20de%20Cima%2C%20Ariquemes%20-%20RO" target="_blank" rel="noopener" data-store-map>Ver no mapa</a>
+      </div>
+      <div class="app-footer__block">
+        <h2>Horários</h2>
+        <p>Segunda-feira: 15h às 22h<br>Terça a domingo: 15h às 23h</p>
+      </div>
+      <div class="app-footer__block" id="contato">
+        <h2>Contato</h2>
+        <div class="app-footer__links">
+          <a href="https://wa.me/5569993108621" target="_blank" rel="noopener" data-whatsapp-primary><span data-whatsapp-primary-label>(69) 99310-8621</span></a>
+          <a href="https://wa.me/5569993983157" target="_blank" rel="noopener" data-whatsapp-secondary><span data-whatsapp-secondary-label>(69) 99398-3157</span></a>
+          <a href="https://www.instagram.com/sorveteriabamboline/" target="_blank" rel="noopener" data-instagram data-instagram-label>@sorveteriabamboline</a>
+        </div>
+      </div>
+    </div>
+    <div class="container app-footer__bottom">
+      <p>© <span id="current-year">2026</span> Sorveteria Bamboline.</p>
+      <p>Pedidos pelo WhatsApp. Nenhum pagamento é processado neste site.</p>
+    </div>
+  </footer>
+
+  <div class="mobile-cart" id="mobile-cart" aria-hidden="true">
+    <div class="mobile-cart__info">
+      <span data-cart-summary>0 itens</span>
+      <strong data-cart-total>R$ 0,00</strong>
+    </div>
+    <button class="btn btn--light" type="button" id="mobile-cart-open">Ver carrinho</button>
+  </div>
+
+  <div class="overlay overlay--drawer" id="cart-overlay" aria-hidden="true" inert>
+    <div class="overlay__backdrop" data-close-cart></div>
+    <aside class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" tabindex="-1">
+      <header class="drawer__head">
+        <div>
+          <p class="eyebrow">Seu pedido</p>
+          <h2 id="cart-title">Carrinho</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-cart aria-label="Fechar carrinho">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <div class="drawer__body" id="cart-body"></div>
+      <footer class="drawer__foot" id="cart-footer"></footer>
+    </aside>
+  </div>
+
+  <div class="overlay overlay--modal" id="product-overlay" aria-hidden="true" inert>
+    <div class="overlay__backdrop" data-close-product></div>
+    <section class="product-modal" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="pd-title" tabindex="-1">
+      <button class="icon-button product-modal__close" type="button" data-close-product aria-label="Fechar produto">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+      </button>
+      <div class="product-modal__grid">
+        <div class="product-modal__media" id="pd-media"></div>
+        <div class="product-modal__content">
+          <p class="eyebrow" id="pd-category"></p>
+          <h2 id="pd-title">Produto</h2>
+          <p class="product-modal__description" id="pd-description"></p>
+          <div class="pd-group" id="pd-flavors" hidden>
+            <div class="pd-group__head">
+              <h3><span id="pd-flavors-heading">Escolha o sabor</span> <span class="pd-required">obrigatório</span></h3>
+            </div>
+            <p class="pd-flavor-counter" id="pd-flavor-counter" hidden></p>
+            <div class="choice-grid choice-grid--flavors" id="pd-flavor-options"></div>
+          </div>
+          <div class="pd-group" id="pd-sizes" hidden>
+            <div class="pd-group__head">
+              <h3>Escolha o tamanho <span class="pd-required">obrigatório</span></h3>
+            </div>
+            <div class="choice-grid choice-grid--sizes" id="pd-size-options"></div>
+          </div>
+          <div class="pd-quantity">
+            <div>
+              <h3>Quantidade</h3>
+              <p>Use os botões para ajustar.</p>
+            </div>
+            <div class="stepper stepper--large">
+              <button type="button" class="stepper__button" id="pd-minus" aria-label="Diminuir quantidade">−</button>
+              <span class="stepper__value" id="pd-quantity-value" aria-live="polite">1</span>
+              <button type="button" class="stepper__button" id="pd-plus" aria-label="Aumentar quantidade">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="product-modal__foot">
+        <div class="product-modal__total">
+          <span>Total do item</span>
+          <strong id="pd-total">—</strong>
+        </div>
+        <button class="btn btn--primary" type="button" id="pd-add" disabled>Adicionar ao carrinho</button>
+      </footer>
+    </section>
+  </div>
+
+  <div class="overlay overlay--modal overlay--checkout" id="checkout-overlay" aria-hidden="true" inert>
+    <div class="overlay__backdrop" data-close-checkout></div>
+    <section class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" tabindex="-1">
+      <header class="checkout-modal__head">
+        <div>
+          <p class="eyebrow">Finalização</p>
+          <h2 id="checkout-title">Finalizar pedido</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-checkout aria-label="Fechar finalização">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <div class="checkout-modal__scroll">
+        <div class="checkout-grid">
+          <form class="checkout-form" id="checkout-form" novalidate>
+            <fieldset class="form-step">
+              <legend><span>1</span> Como você quer receber?</legend>
+              <div class="mode-grid">
+                <label class="mode-card">
+                  <input type="radio" name="service-mode" value="delivery" checked>
+                  <span class="mode-card__icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8h11v8H3V8Zm11 3h4l3 3v2h-7v-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.7"/></svg>
+                  </span>
+                  <span class="mode-card__text"><strong>Delivery</strong><small>Taxa conforme o setor</small></span>
+                  <span class="mode-card__mark" aria-hidden="true"></span>
+                </label>
+                <label class="mode-card">
+                  <input type="radio" name="service-mode" value="local">
+                  <span class="mode-card__icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16M6 10V6h12v4M5 10v9h14v-9M9 19v-5h6v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="mode-card__text"><strong>Consumo no local</strong><small>Sem taxa de entrega</small></span>
+                  <span class="mode-card__mark" aria-hidden="true"></span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-step">
+              <legend><span>2</span> Seus dados</legend>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="customer-name">Nome do cliente</label>
+                  <input id="customer-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?" required aria-describedby="customer-name-error">
+                  <p class="field__error" id="customer-name-error" hidden></p>
+                </div>
+                <div class="field">
+                  <label for="customer-phone">Telefone para contato</label>
+                  <input id="customer-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" placeholder="(69) 99999-9999" required aria-describedby="customer-phone-error">
+                  <p class="field__error" id="customer-phone-error" hidden></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-step" id="address-section">
+              <legend><span>3</span> Endereço de entrega</legend>
+              <div class="field-grid">
+                <div class="field field--full">
+                  <label id="sector-label" for="sector-trigger">Setor de entrega</label>
+                  <div class="combo" id="sector-combo">
+                    <button type="button" class="combo__trigger" id="sector-trigger" aria-haspopup="listbox" aria-expanded="false" aria-required="true" aria-controls="sector-panel" aria-labelledby="sector-label sector-value" aria-describedby="sector-error">
+                      <span class="combo__value is-placeholder" id="sector-value">Selecione o setor</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 9 5 5 5-5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="combo__panel" id="sector-panel" hidden>
+                      <div class="combo__search">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                        <input type="search" id="sector-search" placeholder="Buscar setor..." autocomplete="off" aria-label="Buscar setor de entrega" aria-controls="sector-options">
+                      </div>
+                      <ul class="combo__options" id="sector-options" role="listbox" aria-labelledby="sector-label"></ul>
+                      <p class="combo__empty" id="sector-empty" hidden>Nenhum setor encontrado.</p>
+                    </div>
+                  </div>
+                  <input type="hidden" id="delivery-zone" name="zone">
+                  <p class="field__hint">A taxa é calculada uma única vez por pedido, de acordo com o setor.</p>
+                  <p class="field__error" id="sector-error" hidden></p>
+                </div>
+                <div class="field field--street">
+                  <label for="address-street">Rua</label>
+                  <input id="address-street" name="street" type="text" autocomplete="address-line1" maxlength="120" placeholder="Nome da rua" required aria-describedby="address-street-error">
+                  <p class="field__error" id="address-street-error" hidden></p>
+                </div>
+                <div class="field field--number">
+                  <label for="address-number">Número</label>
+                  <input id="address-number" name="number" type="text" inputmode="numeric" maxlength="20" placeholder="Nº" required aria-describedby="address-number-error">
+                  <p class="field__error" id="address-number-error" hidden></p>
+                </div>
+                <div class="field field--full">
+                  <label for="address-neighborhood">Bairro</label>
+                  <input id="address-neighborhood" name="neighborhood" type="text" autocomplete="address-level3" maxlength="80" placeholder="Bairro" required aria-describedby="address-neighborhood-error">
+                  <p class="field__error" id="address-neighborhood-error" hidden></p>
+                </div>
+                <div class="field">
+                  <label for="address-complement">Complemento <span class="optional">opcional</span></label>
+                  <input id="address-complement" name="complement" type="text" maxlength="80" placeholder="Apto, bloco, casa...">
+                </div>
+                <div class="field">
+                  <label for="address-reference">Ponto de referência <span class="optional">opcional</span></label>
+                  <input id="address-reference" name="reference" type="text" maxlength="120" placeholder="Algo que ajude a encontrar">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-step">
+              <legend><span>4</span> Observações</legend>
+              <div class="field">
+                <label for="order-notes">Observações adicionais <span class="optional">opcional</span></label>
+                <textarea id="order-notes" name="notes" maxlength="300" rows="3" placeholder="Alguma observação sobre o pedido?"></textarea>
+                <div class="field__meta"><span>Não use este campo para adicionais.</span><span id="notes-count">0/300</span></div>
+              </div>
+            </fieldset>
+            <p class="form-disclaimer">Este site não processa pagamentos. O pedido é preparado e enviado pelo WhatsApp da loja.</p>
+          </form>
+
+          <aside class="checkout-summary" aria-label="Resumo do pedido">
+            <div class="checkout-summary__head">
+              <h3>Resumo do pedido</h3>
+              <span class="checkout-summary__count" data-checkout-count>0 itens</span>
+            </div>
+            <div class="checkout-summary__items" id="checkout-items"></div>
+            <div class="checkout-summary__meta" id="checkout-meta"></div>
+            <div class="checkout-summary__totals" id="checkout-totals"></div>
+            <div id="checkout-hours-note"></div>
+            <div class="order-success" id="checkout-success" role="status" hidden>
+              <h3>Pedido pronto para enviar</h3>
+              <p>Confira a mensagem no WhatsApp e toque em enviar para concluir. Se a nova aba não abriu, use o link abaixo. Seu carrinho continua salvo.</p>
+              <a class="text-link" id="checkout-fallback" href="#" target="_blank" rel="noopener" hidden>Abrir WhatsApp novamente</a>
+            </div>
+            <button class="btn btn--whatsapp" type="submit" form="checkout-form" id="checkout-submit">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.9 9.9 0 0 0 4.7 1.2h.01c5.43 0 9.84-4.4 9.84-9.84 0-2.63-1.02-5.1-2.88-6.96A9.78 9.78 0 0 0 12.04 2Zm0 18.02a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.17.83.85-3.09-.2-.32a8.17 8.17 0 0 1-1.25-4.36 8.2 8.2 0 0 1 8.24-8.2c2.19 0 4.24.86 5.79 2.4a8.15 8.15 0 0 1 2.4 5.8 8.21 8.21 0 0 1-8.2 8.24Zm4.5-6.14c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.17-.28.19-.53.06-.24-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.45-1.37-1.7-.15-.24-.02-.37.1-.5.12-.1.25-.28.37-.43.12-.14.16-.24.24-.4.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.43.06-.65.3-.22.25-.85.84-.85 2.04 0 1.2.87 2.36 1 2.52.12.17 1.72 2.62 4.16 3.67.58.25 1.04.4 1.39.51.59.19 1.12.16 1.54.1.47-.07 1.45-.6 1.65-1.17.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+              Confirmar pedido pelo WhatsApp
+            </button>
+            <p class="checkout-summary__note">Ao confirmar, o WhatsApp será aberto com todos os detalhes do pedido. O envio depende de você tocar em enviar no aplicativo.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/art.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
