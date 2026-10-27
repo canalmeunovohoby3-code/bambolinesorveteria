@@ -74,7 +74,14 @@ Quando `image` existe, o cardápio, o painel do produto e o carrinho passam a us
 
 ## Publicação na Vercel
 
-O projeto é 100% estático. Na Vercel, importe o repositório/pasta, escolha o preset **Other**, não configure comando de build e publique a raiz do projeto. Não há variáveis de ambiente nem segredos.
+O projeto é 100% estático. Na Vercel, o projeto deve usar:
+
+- **Framework Preset:** Other
+- **Root Directory:** a raiz do repositório
+- **Build Command:** vazio
+- **Output Directory:** `.` (raiz)
+
+O arquivo `vercel.json` já força a saída na raiz. Depois de alterar as configurações, faça um novo deploy. Não há variáveis de ambiente nem segredos.
 
 ## Observações
 
